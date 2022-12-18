@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "backdrop-filter",
+          "aspect-ratio",
+          "width: fit-content",
+          "height: fit-content",
+          "user-select",
+          "text-align: -webkit-match-parent",
+          "-webkit-text-size-adjust",
+          "-webkit-overflow-scrolling",
+          "overflow-anchor"
+        ]
+      }
+    ]
+  }
+}
