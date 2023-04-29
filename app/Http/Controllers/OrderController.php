@@ -1,6 +1,6 @@
 <?php
 // Programmer Name: Ms. Lim Jia Yong, Project Manager
-// Description: Manage orders 
+// Description: Manage orders
 //      - Customers can create new order, view order status and view previous orders
 //      - Admins can view all orders
 //      - Kitchen staff can view all orders and update order status
@@ -69,7 +69,7 @@ class OrderController extends Controller
         if (auth()->user()->role == 'customer')
             abort(403, 'This route is only meant for restaurant staffs.');
 
-        // this is actually 'previousOrders' not 'activeOrders', but i name it this way 
+        // this is actually 'previousOrders' not 'activeOrders', but i name it this way
         // just for the blade's variable naming sake
         $previousOrders = Order::where('completed', 1)->orderBy('dateTime', 'desc')->paginate(8);
         return view('previousOrder', compact('previousOrders'));

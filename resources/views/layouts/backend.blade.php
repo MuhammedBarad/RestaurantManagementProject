@@ -34,7 +34,7 @@
     <script src="https://use.fontawesome.com/a94b89670e.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backend.css') }}" rel="stylesheet">
-
+    <script src="https://kit.fontawesome.com/29899eac5f.js" crossorigin="anonymous"></script>
     @yield('links')
 
 </head>
@@ -77,13 +77,15 @@
         @if (auth()->user()->role == 'admin')
             <li ><a href="{{ route('dashboard') }}" id="sidebar-dashboard"><i class="fa fa-th-large" aria-hidden="true"></i>Dashboard</a></li>
             <br>
+            <li ><a href="{{ route('userAccounts') }}" id="sidebar-account"><i class="fa fa-user" aria-hidden="true"></i>Users</a></li>
+            <br>
             <li ><a href="{{ route('kitchenOrder') }}" id="sidebar-orders"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Orders</a></li>
             <br>
             <li ><a href="{{ route('menu') }}" id="sidebar-menu"><i class="fa fa-book" aria-hidden="true"></i>Menu</a></li>
             <br>
             <li ><a href="{{ route('discount') }}" id="sidebar-discount"><i class="fa fa-ticket" aria-hidden="true"></i>Discount</a></li>
             <br>
-            <li ><a href="{{ route('accountCreation') }}" id="sidebar-account"><i class="fa fa-user" aria-hidden="true"></i>Account</a></li>
+            <li ><a href="{{ route('accountCreation') }}" id="sidebar-account"><i class="fa-solid fa-user-plus"></i>Account</a></li>
             <br>
         @else
             <li ><a href="{{ route('kitchenOrder') }}" id="sidebar-orders"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Orders</a></li>
@@ -102,7 +104,7 @@
         </ul>
     </div>
 
-    <div class="container">
+    <div>
         <div class="pl-250">
         @yield('content')
         </div>

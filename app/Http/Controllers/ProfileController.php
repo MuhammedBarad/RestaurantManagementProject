@@ -17,8 +17,23 @@ class ProfileController extends Controller
 
     public function update(Request $request,$id)
     {
-        $item = User::findOrFail($id);
 
+
+
+        $item = User::findOrFail($id);
+        $roles = [
+            'username'=>'required|string|max:30|min:0',
+            'mobil'=>'required|integer|max:9999999999|min:0',
+            'address_1'=>'required|string|max:200|min:0',
+            'address_2'=>'required|string|max:200|min:0',
+            'postacode'=>'required|integer|max:999999|min:0',
+            'state'=>'required|string|max:50|min:0',
+            'area'=>'required|string|max:50|min:0',
+            'country'=>'required|string|max:50|min:0',
+            'stateRegion'=>'required|string|max:50|min:0',
+        ];
+        $request->validate($roles);
+        $item->username = $request->username;
         $item->mobil= $request->mobil;
         $item->address_1=$request->address_1;
         $item->address_2=$request->address_2;
@@ -30,7 +45,7 @@ class ProfileController extends Controller
 
         $item->save();
 
-        return view('profile',compact('item'));
+        return redirect()->route('profile',compact('item'))->with('success', "Updated Dates.");
     }
 
 }

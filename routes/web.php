@@ -15,6 +15,7 @@ use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\userAccounts;
 
 require __DIR__.'/auth.php';
 /*
@@ -83,4 +84,10 @@ Route::get('/cancel-transaction/{orderId}', [PayPalController::class, 'cancelTra
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+//userAccounts
+
+Route::get('/account/users', [userAccounts::class, 'index'])->name('userAccounts');
+
 

@@ -44,7 +44,7 @@
     <header>
         <nav data-theme="@yield('navTheme')" class="home-nav @yield('navTheme')">
             <a href="/" class="logo-wrapper">
-                <img class="logo" src="@yield('logoFileName')" alt="logo" style="margin-top: -15px">
+                <img class="logo" src="@yield('logoFileName')" alt="logo" style="margin-top: -18px">
                 <h3 class="logo-name" style="font-size:20px;margin-top: -12px">{{ config('app.name') }}</h3>
             </a>
             <ul class="nav-links">
@@ -67,10 +67,10 @@
 
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Settings
+                          {{auth()->user()->username}}
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('profile') }}" type="button" class="btn btn-light" style="color: #000;text-shadow:none">{{auth()->user()->username}}</a></li>
+                            <li><a href="{{ route('profile') }}" type="button" class="btn btn-light" style="color: #000;text-shadow:none">Profile</a></li>
                             <li>
                                 <a href="{{ route('logout') }}" type="button" class="btn btn-light" style="color: #000;text-shadow:none" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
